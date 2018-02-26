@@ -1,10 +1,14 @@
+# https://github.com/jupyter/docker-stacks/tree/master/datascience-notebook
 version: "3"
 
 services:
   datascience-notebook:
       image: jupyter/datascience-notebook
+      user: root
       volumes:
         - ./work:/home/jovyan/work
       ports:
         - 8888:8888
       container_name: datascience-notebook-container
+      environment:       
+        - NB_UID=9685149 # UID do usuário logado
